@@ -1,0 +1,31 @@
+﻿@model List<mvc_first_akshay.db.mvc_table_akshay>
+@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<table class="table  table-bordered table-hover active">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>City</th>
+        <th>update</th>
+        <th>Delete</th>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.name</td>
+            <td>@item.email</td>
+            <td>@item.phone</td>
+            <td>@item.city</td>
+            <td><a href="#" class="btn btn-success">Update</a></td>
+            <td><a href="@Url.Action("delete","Home",new { item.id})" class="btn btn-danger">Delete</a></td>
+        </tr>
+    }
+    </table>
+
